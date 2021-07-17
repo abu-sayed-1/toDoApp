@@ -1,11 +1,15 @@
 import React from 'react';
 import { useRef } from 'react';
+import { connect } from 'react-redux';
+import { addTodo, editTodo, removeTodo } from '../../../redux/toDoActions/toDoActions';
+import ToDoList from "../ToDoList/ToDoList";
 
-const ToDo = () => {
+const ToDo = props => {
+    const { todoItem, removeTodo, addToDo, editTodo } = props;
     const formRef = useRef(null);
     const handleSubmit = (e) => {
         const form = formRef.current['addToDo'].value;
-        console.log(form)
+        addToDo(form);
         e.preventDefault();
     }
     return (
@@ -16,8 +20,19 @@ const ToDo = () => {
                     AddToDo
                 </button>
             </form>
+            <ToDoList todoItem={todoItem} removeTodo={removeTodo} editTodo={editTodo} />
         </div>
     );
 };
 
-export default ToDo;
+const mapStateToProps = state => {
+    return { todoItem: state.toDo };
+};
+
+const mapDispatchToProps = {
+    addToDo: addTodo,
+    removeTodo: removeTodo,
+    editTodo: editTodo
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDo);

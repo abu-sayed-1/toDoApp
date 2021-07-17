@@ -1,5 +1,5 @@
-// import { createStore } from "redux";
-// import toDoReducers from "../toDoReducers/toDoReducers";
+import { createStore } from "redux";
+import toDoReducers from "../toDoReducers/toDoReducers";
 
 
-// export const store = createStore(toDoReducers);
+export const store = createStore(toDoReducers);
