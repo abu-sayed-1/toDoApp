@@ -1,12 +1,14 @@
 import './App.css';
 import ToDo from './components/ToDoApp/ToDo/ToDo';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>To Do App </h2>
-        <ToDo />
+        <div>
+          <h2>To Do App </h2>
+          <ToDo />
+        </div>
       </header>
     </div>
   );

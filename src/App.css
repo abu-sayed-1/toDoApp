@@ -1,4 +1,4 @@
-.App-header {
+.App {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -9,3 +9,45 @@
   color: white;
 }
 
+.App-header {
+  display: flex;
+  justify-content: center;
+  width: 36rem;
+  min-height: 35rem;
+  padding-bottom: 3rem;
+  background-color: blueviolet;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+
+/* ToDo component css here */
+.addTodo_input {
+  border: none;
+  outline: none !important;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.479);
+  padding: 6px 18px 6px 18px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.addTodo_btn{
+  border: none;
+  outline: none !important;
+  background-color: rgb(241, 25, 231);
+  color: white;
+  padding: 6px 18px 6px 18px;
+
+}
+
+/* toDoList component css here*/
+.toDoList_container{
+  display: flex;
+}

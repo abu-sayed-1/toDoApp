@@ -2,32 +2,56 @@ import React from 'react';
 import { useState } from 'react';
 
 const ToDoList = props => {
-    const { todoItem, removeTodo, editTodo } = props;
+    const {
+        todoItem, removeTodo,
+        editTodo, completedTodo
+    } = props;
+
     const [updateValue, setUpdateValue] = useState('');
     const [editTodoList, setEditTodoList] = useState({
         checkoutEditId: '',
         edit: false
     });
 
+    const isSameTodoId = editTodoList.checkoutEditId;
     const updateTodoList = id => {
-        editTodo(id, updateValue)
+        if (updateValue) editTodo(id, updateValue);
         setEditTodoList({ edit: false })
+        setUpdateValue("");
     };
     return (
         <div>
             {
                 todoItem?.map(({ todoList, todoId }) => (
-                    <div key={todoId}>
+                    <div className="toDoList_container" key={todoId}>
                         <p>{todoList}</p>
+                        <input onClick={() => completedTodo(todoId)} type="radio" />
                         <button onClick={() => removeTodo(todoId)}>Remove</button>
                         {
-                            (editTodoList.edit && editTodoList.checkoutEditId === todoId) ?
+                            (editTodoList.edit && isSameTodoId === todoId) ?
                                 <>
-                                    <input onChange={(e) => setUpdateValue(e.target.value)} type="text" name="" id="" />
-                                    <button onClick={() => updateTodoList(todoId)}>Save</button>
-
+                                    <input onChange={
+                                        (e) =>
+                                            setUpdateValue(e.target.value)
+                                    }
+                                        defaultValue={isSameTodoId === todoId ? todoList : ""}
+                                        type="text"
+                                        name="" id=""
+                                    />
+                                    <button onClick={
+                                        () => updateTodoList(todoId)
+                                    }>
+                                        Save
+                                    </button>
                                 </>
-                                : <button onClick={() => setEditTodoList({ edit: true, checkoutEditId: todoId })}>Edit</button>
+                                : <button onClick={
+                                    () => setEditTodoList({
+                                        edit: true,
+                                        checkoutEditId: todoId
+                                    })
+                                }>
+                                    Edit
+                                </button>
                         }
                     </div>
                 ))
