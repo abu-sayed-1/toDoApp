@@ -7,7 +7,7 @@ const CompletedTodo = ({ completedTodoList, undoTodo }) => {
                 completedTodoList?.map(({ completedTodo, todoId }) => (
                     <div>
                         <del>completedTodo: {""} {completedTodo}</del>
-                        <button onClick={() => undoTodo(todoId)}>undo</button>
+                        <i onClick={() => undoTodo(todoId)} className="fas fa-undo icons"></i>
                     </div>
                 ))
             }

@@ -12,7 +12,7 @@
 .App-header {
   display: flex;
   justify-content: center;
-  width: 36rem;
+  width: auto;
   min-height: 35rem;
   padding-bottom: 3rem;
   background-color: blueviolet;
@@ -23,6 +23,12 @@
   -o-border-radius: 10px;
 }
 
+@media screen and (min-width: 425px) {
+  .App-header {
+    width: 34rem;
+    background-color: blueviolet;
+  }
+}
 
 /* ToDo component css here */
 .addTodo_input {
@@ -30,7 +36,7 @@
   outline: none !important;
   color: white;
   background-color: rgba(255, 255, 255, 0.479);
-  padding: 6px 18px 6px 18px;
+  padding: 12px 25px 12px 25px;
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -38,16 +44,66 @@
   -o-border-radius: 2px;
 }
 
-.addTodo_btn{
+.addTodo_btn {
   border: none;
   outline: none !important;
   background-color: rgb(241, 25, 231);
   color: white;
-  padding: 6px 18px 6px 18px;
+  padding: 12px 25px 12px 25px;
 
 }
 
 /* toDoList component css here*/
-.toDoList_container{
+#cyan {
+  background: #fd00c6;
+}
+
+#blue {
+  background: rgb(7, 120, 124);
+}
+
+#rad {
+  background: #972408;
+}
+
+#orange {
+  background: #005792;
+}
+
+.toDo_items {
+  border-radius: 3px;
+  width: 22rem;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.toDo_items {
   display: flex;
+  margin-top: 1rem;
+  padding: 0.7rem;
+}
+
+.toDo_items p {
+  margin: 0%;
+}
+
+.todo_buttons {
+  display: flex;
+  margin-left: auto;
+}
+
+.icons:hover {
+  cursor: pointer;
+}
+
+.update_container{
+  margin-top: 7px;
+}
+
+
+
+.margin_left {
+  margin-left: 5px;
 }
