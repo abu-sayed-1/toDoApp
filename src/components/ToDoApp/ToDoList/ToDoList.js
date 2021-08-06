@@ -2,15 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 
 const ToDoList = props => {
-    const {
-        todoItem, removeTodo,
-        editTodo, completedTodo
-    } = props;
     const [updateValue, setUpdateValue] = useState('');
     const [editTodoList, setEditTodoList] = useState({
         checkoutEditId: '',
         edit: false
     });
+    const {
+        todoItem, removeTodo,
+        editTodo, completedTodo
+    } = props;
 
     const isSameTodoId = editTodoList.checkoutEditId;
     const updateTodoList = id => {
@@ -18,12 +18,12 @@ const ToDoList = props => {
         setEditTodoList({ edit: false })
         setUpdateValue("");
     };
-    //
+
     return (
-        <div>
+        <div className="todoList_container">
             {
-                todoItem?.map(({ todoList, todoId, background }) => (
-                    <>
+                todoItem.length > 0 ? todoItem.map(({ todoList, todoId, background }, index) => (
+                    <div key={index}>
                         {
                             (editTodoList.edit && isSameTodoId === todoId) ?
                                 <div className="update_container">
@@ -37,13 +37,13 @@ const ToDoList = props => {
                                             name=""
                                             className="addTodo_input"
                                         />
-                                        <button onClick={() => updateTodoList(todoId)}  className="addTodo_btn icons">
+                                        <button onClick={() => updateTodoList(todoId)} className="addTodo_btn icons">
                                             <i className="far fa-save"></i>
                                         </button>
                                     </>
                                 </div> :
 
-                                <div className="toDo_items" id={`${background}`} key={todoId}>
+                                <div className="toDo_items" id={`${background}`}>
                                     <p>{todoList}</p>
                                     <div className="todo_buttons">
                                         <div>
@@ -63,8 +63,8 @@ const ToDoList = props => {
                                     </div>
                                 </div>
                         }
-                    </>
-                ))
+                    </div>
+                )) : <p className="noTask">no-Tasks</p>
             }
         </div>
     );

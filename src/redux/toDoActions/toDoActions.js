@@ -5,10 +5,6 @@ export const COMPLETED_TODO = "COMPLETED_TODO";
 export const UNDO_TODO = "UNDO_TODO";
 export const TASKS = "TASKS";
 export const COMPLETED_TASKS = "COMPLETED_TASKS";
-export const addTodo = (data, colorName) => {
-    console.log(colorName)
-    return { type: ADD_TODO, payload: { data: data, colorName: colorName } };
-};
 
 export const tasks = () => {
     return { type: TASKS };
@@ -16,6 +12,10 @@ export const tasks = () => {
 
 export const completedTasks = () => {
     return { type: COMPLETED_TASKS };
+};
+
+export const addTodo = (data, colorName) => {
+    return { type: ADD_TODO, payload: { data: data, colorName: colorName } };
 };
 
 export const removeTodo = id => {
@@ -33,3 +33,4 @@ export const completedTodo = id => {
 export const undoTodo = id => {
     return { type: UNDO_TODO, payload: id };
 };
+

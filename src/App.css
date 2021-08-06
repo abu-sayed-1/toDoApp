@@ -16,6 +16,7 @@
   min-height: 35rem;
   padding-bottom: 3rem;
   background-color: blueviolet;
+  box-sizing: border-box;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -28,6 +29,10 @@
     width: 34rem;
     background-color: blueviolet;
   }
+}
+
+.todo_title {
+    text-align: center;
 }
 
 /* ToDo component css here */
@@ -53,6 +58,26 @@
 
 }
 
+.tasksAndCompletedTasks_btn {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.tasksAndCompletedTasks_btn button {
+  border: none;
+  outline: none !important;
+  background-color: blueviolet;
+  color: white;
+  margin-left: 8px;
+  padding: 12px 25px 12px 25px;
+  cursor: pointer;
+}
+
+.tasksAndCompletedTasks_btn button i {
+  margin-right: 6px;
+}
+
 /* toDoList component css here*/
 #cyan {
   background: #fd00c6;
@@ -72,7 +97,9 @@
 
 .toDo_items {
   border-radius: 3px;
-  width: 22rem;
+  max-width: 22rem !important;
+  min-width: 4rem !important;
+  height: auto;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -87,23 +114,34 @@
 
 .toDo_items p {
   margin: 0%;
+  word-break: break-all;
 }
 
 .todo_buttons {
   display: flex;
   margin-left: auto;
+  align-items: center;
 }
 
 .icons:hover {
   cursor: pointer;
 }
 
-.update_container{
+.update_container {
   margin-top: 7px;
 }
 
-
-
 .margin_left {
   margin-left: 5px;
+}
+
+.completed_tasks {
+  word-break: break-all;
+}
+
+.noTask {
+  display: flex;
+  justify-content: center;
+  padding-top: 4.5rem;
+  color: rgba(245, 245, 245, 0.233);
 }

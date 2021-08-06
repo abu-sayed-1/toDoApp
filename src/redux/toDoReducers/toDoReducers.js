@@ -1,19 +1,23 @@
-import { ADD_TODO, COMPLETED_TASKS, COMPLETED_TODO, EDIT_TODO, REMOVE_TODO, TASKS, UNDO_TODO } from "../toDoActions/toDoActions";
+import {
+    ADD_TODO, COMPLETED_TASKS,
+    COMPLETED_TODO, EDIT_TODO,
+    REMOVE_TODO, TASKS,
+    UNDO_TODO
+} from "../toDoActions/toDoActions";
 
 const todoState = {
     toDo: [],
     completedTodoList: [],
     showTasks: true,
-    showCompletedTasks: false
 };
 
 const toDoReducers = (state = todoState, action) => {
     switch (action.type) {
         case TASKS:
-            return { ...state, showTasks: true, showCompletedTasks: false }
+            return { ...state, showTasks: true }
 
         case COMPLETED_TASKS:
-            return { ...state, showTasks: false, showCompletedTasks: true }
+            return { ...state, showTasks: false }
         case ADD_TODO:
             const newItem = {
                 todoList: action.payload.data,

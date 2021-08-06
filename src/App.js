@@ -6,7 +6,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <div>
-          <h2>To Do App </h2>
+          <h2 className="todo_title">To Do App </h2>
           <ToDo />
         </div>
       </header>
